@@ -1,8 +1,8 @@
 class Pet < ApplicationRecord
 
-  belongs_to :Shelter
+  belongs_to :shelter
 
   validates :name, :breed, :animal_type, {
-    presence :true
+    presence: true
   }
 end

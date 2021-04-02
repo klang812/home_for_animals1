@@ -17,7 +17,7 @@ class PetsController < ApplicationController
     def update
       @pet = Pet.find(params[:id])
       @pet.update!(pet_params)
-      json_response(pet, :created)
+      json_response(@pet, :created)
     end
   
     def destroy
@@ -31,7 +31,7 @@ class PetsController < ApplicationController
     end
   
     def pet_params
-      params.permit(:name, :animal_type, :breed, :dog_id)
+      params.permit(:name, :animal_type, :breed, :shelter_id)
     end
   end
   
