@@ -1,0 +1,154 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/shelters":
+    post:
+      summary: Creates a shelter
+      tags:
+      - Shelters
+      parameters: []
+      responses:
+        '201':
+          description: shelter created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                location:
+                  type: string
+              required:
+              - location
+  api/v1/shelters:
+    get:
+      summary: Retrieves a shelter
+      tags:
+      - Shelters
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: shelter found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  location:
+                    type: string
+                required:
+                - id
+                - location
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  location:
+                    type: string
+                required:
+                - id
+                - location
+        '404':
+          description: shelter not found
+        '406':
+          description: unsupported accept header
+  api/v1/shelters/{:id}:
+    put:
+      summary: Updates a shelter
+      tags:
+      - Shelters
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: shelter found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  location:
+                    type: string
+                required:
+                - id
+                - location
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  location:
+                    type: string
+                required:
+                - id
+                - location
+        '404':
+          description: shelter not found
+        '406':
+          description: unsupported accept header
+    delete:
+      summary: Deletes a blog
+      tags:
+      - Shelters
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: shelter found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  location:
+                    type: string
+                required:
+                - id
+                - location
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  location:
+                    type: string
+                required:
+                - id
+                - location
+        '404':
+          description: shelter not found
+        '406':
+          description: unsupported accept header
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
