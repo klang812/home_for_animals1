@@ -6,7 +6,7 @@ describe 'update a shelter', :type => :request do
 
   context 'when successful' do
     before do
-      patch shelter_path(shelter.id), params: attr
+      patch api_v1_shelter_path(shelter.id), params: attr
       @parse = JSON.parse(response.body)
     end
     it 'updates a shelter' do
@@ -20,7 +20,7 @@ describe 'update a shelter', :type => :request do
   end
   context 'when unsuccessful' do
     it 'return a value of 422' do
-      patch shelter_path(shelter.id), params: {location: ""}
+      patch api_v1_shelter_path(shelter.id), params: {location: ""}
       expect(response).to have_http_status :unprocessable_entity
     end
   end

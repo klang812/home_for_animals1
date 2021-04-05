@@ -5,7 +5,7 @@ describe 'Get request Shelters' do
   let!(:shelters) { FactoryBot.create_list(:shelter, 10) }
 
   describe 'gets all shelters', :type => :request do
-    before { get shelters_path }
+    before { get api_v1_shelters_path }
 
     it 'returns all of the shelters' do
       expect(JSON.parse(response.body).size).to eq(10)
@@ -21,7 +21,7 @@ describe 'Get request Shelters' do
 
     context 'when successful' do
       before do
-        get shelter_path(shelter)
+        get api_v1_shelter_path(shelter)
         @parse = JSON.parse(response.body)
       end
       it 'returns a shelter' do
@@ -31,7 +31,7 @@ describe 'Get request Shelters' do
     end
 
     context 'when unsuccessful' do 
-      before { get shelter_path(shelters.last.id + 1) }
+      before { get api_v1_shelter_path(shelters.last.id + 1) }
       it { expect(response).to have_http_status :not_found }
     end
   end

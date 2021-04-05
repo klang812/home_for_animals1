@@ -5,13 +5,13 @@ describe 'Delete a dog', :type => :request do
 
   context 'when successful' do
     it 'deletes a shelter' do
-      delete shelter_path(shelter.id)
+      delete api_v1_shelter_path(shelter.id)
       expect(response).to have_http_status :no_content
     end
   end
   context 'when unsuccessful' do
     it 'return a 404' do
-      delete shelter_path(shelter.id + 1)
+      delete api_v1_shelter_path(shelter.id + 1)
       expect(response).to have_http_status :not_found
     end
   end
