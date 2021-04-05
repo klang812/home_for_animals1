@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Delete a dog', :type => :request do
+describe 'Delete a shelter', :type => :request do
   let!(:shelter) { FactoryBot.create(:shelter) }
 
   context 'when successful' do
