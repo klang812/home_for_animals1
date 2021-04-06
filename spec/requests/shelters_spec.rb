@@ -27,7 +27,7 @@ describe 'Shelters API' do
     end
   end
 
-  path 'api/v1/shelters' do
+  path '/api/v1/shelters/{id}' do
 
     get 'Retrieves a shelter' do
       tags 'Shelters'
@@ -42,7 +42,7 @@ describe 'Shelters API' do
           },
           required: [ 'id', 'location' ]
 
-        let(:id) { 1 }
+        let(:id) { Shelter.create(location: "Portland").id }
         run_test!
       end
 
@@ -50,15 +50,10 @@ describe 'Shelters API' do
         let(:id) { 'invalid' }
         run_test!
       end
-
-      response '406', 'unsupported accept header' do
-        let(:'Accept') { 'application/foo' }
-        run_test!
-      end
     end
   end
 
-  path 'api/v1/shelters/{:id}' do
+  path '/api/v1/shelters/{id}' do
 
     put 'Updates a shelter' do
       tags 'Shelters'
@@ -73,7 +68,7 @@ describe 'Shelters API' do
           },
           required: [ 'id', 'location' ]
 
-        let(:id) { 1 }
+        let(:id) { Shelter.create(location: "Portland").id }
         run_test!
       end
 
@@ -82,10 +77,7 @@ describe 'Shelters API' do
         run_test!
       end
 
-      response '406', 'unsupported accept header' do
-        let(:'Accept') { 'application/foo' }
-        run_test!
-      end
+      
     end
 
     delete 'Deletes a blog' do
@@ -93,15 +85,11 @@ describe 'Shelters API' do
       produces 'application/json', 'application/xml'
       parameter name: :id, in: :path, type: :string
 
-      response '200', 'shelter found' do
-        schema type: :object,
-          properties: {
-            id: { type: :integer },
-            location: { type: :string }
-          },
-          required: [ 'id', 'location' ]
+      response '204', 'shelter found' do
+        schema type: nil
+          
 
-        let(:id) { 1 }
+        let(:id) { Shelter.create(location: "Portland").id }
         run_test!
       end
 
@@ -110,10 +98,7 @@ describe 'Shelters API' do
         run_test!
       end
 
-      response '406', 'unsupported accept header' do
-        let(:'Accept') { 'application/foo' }
-        run_test!
-      end
+      
     end
   end
 end

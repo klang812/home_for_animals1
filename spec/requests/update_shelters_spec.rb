@@ -15,7 +15,7 @@ describe 'update a shelter', :type => :request do
       end
     end
     it 'returns a value of 200' do
-      expect(response).to have_http_status :created 
+      expect(response).to have_http_status :ok 
     end
   end
   context 'when unsuccessful' do

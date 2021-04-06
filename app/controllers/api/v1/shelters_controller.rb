@@ -7,7 +7,7 @@ module Api::V1
     end
 
     def create
-      @shelter = Shelter.create!(dog_params)
+      @shelter = Shelter.create!(shelter_params)
       json_response(@shelter, :created)
     end
 
@@ -19,7 +19,7 @@ module Api::V1
     def update
       @shelter = Shelter.find(params[:id])
       @shelter.update!(shelter_params)
-      json_response(@shelter, :created)
+      json_response(@shelter, :ok)
     end
 
     def destroy

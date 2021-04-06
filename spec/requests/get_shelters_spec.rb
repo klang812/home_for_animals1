@@ -1,9 +1,11 @@
 require 'rails_helper'
 
 describe 'Get request Shelters' do
-
+  before do
+    Shelter.destroy_all
+  end
   let!(:shelters) { FactoryBot.create_list(:shelter, 10) }
-
+  
   describe 'gets all shelters', :type => :request do
     before { get api_v1_shelters_path }
 
