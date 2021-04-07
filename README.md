@@ -21,7 +21,7 @@ _This is an API for a fictitious animal shelter with a one to many relationship.
 
 # Project Database Schema
 
-![Table Schema](/public/img/specialty_store_schema.png)
+![Table Schema](/public/img/database_schema.png)
 
 ## Setup/Installation Requirements
 
@@ -67,6 +67,17 @@ Clone the repo:
 Testing:
 * This is a testing project utilizing Test-Driven Development (TDD).
 * Using the test command `$ rspec` you will be able to test the program yourself and verify its functionality.
+
+Postman: Download the Postman app and test the CRUD functionality for yourself! Or please see below:
+
+![Table Schema](/public/img/get_shelters.png)
+![Table Schema](/public/img/post_shelters.png)
+![Table Schema](/public/img/patch_shelters.png)
+![Table Schema](/public/img/delete_shelter.png)
+![Table Schema](/public/img/get_pets.png)
+![Table Schema](/public/img/post_pets.png)
+![Table Schema](/public/img/patch_pets.png)
+![Table Schema](/public/img/delete_pets.png)
 
 ## Known Bugs
 
